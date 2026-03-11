@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Catalyst Intelligence Platform</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <div class="logo-mark">CI</div>
+                <span class="app-title">CATALYST INTELLIGENCE</span>
+                <span class="app-subtitle">Family Office Portfolio Monitor</span>
+            </div>
+            <div class="top-bar-right">
+                <div class="status-indicator">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="runTimestamp">Loading...</span>
+                </div>
+                <button class="btn btn-primary" id="runAnalysisBtn" onclick="runAnalysis()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Run Analysis
+                </button>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <div class="section-header">
+                <span class="section-title">Portfolio Risk Overview</span>
+                <span class="section-meta">3-6 Month Horizon</span>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Analysis Runs</div>
+                    <div class="stat-value neutral" id="statTotalRuns">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Catalysts</div>
+                    <div class="stat-value" id="statTotalCatalysts">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Upside Signals</div>
+                    <div class="stat-value upside" id="statUpside">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Downside Signals</div>
+                    <div class="stat-value downside" id="statDownside">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Confidence</div>
+                    <div class="stat-value" id="statAvgConfidence">--</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+
+                <div class="catalyst-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">Ranked Catalysts</span>
+                        <div class="panel-actions">
+                            <span class="section-meta" id="statTotalImpact">--</span>
+                        </div>
+                    </div>
+
+                    <div id="emptyState" class="empty-state" style="display: none;">
+                        <svg class="empty-state-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 20V10"/>
+                            <path d="M18 20V4"/>
+                            <path d="M6 20v-4"/>
+                        </svg>
+                        <div class="empty-state-title">No Catalyst Data</div>
+                        <div class="empty-state-text">Run an analysis to generate catalyst reports from the AI pipeline. The system will process signals through reasoning, verification, calibration, and reporting agents.</div>
+                        <button class="btn btn-primary" onclick="runAnalysis()">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            Run First Analysis
+                        </button>
+                    </div>
+
+                    <table class="catalyst-table" id="catalystTable">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Ticker</th>
+                                <th>Direction</th>
+                                <th>Catalyst</th>
+                                <th class="text-right">Impact (USD)</th>
+                                <th>Confidence</th>
+                                <th>Horizon</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catalystTableBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="side-panel">
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-card-title">Signal Distribution</div>
+                        </div>
+                        <div class="info-card-body">
+                            <div class="direction-summary">
+                                <div class="direction-summary-item upside-summary">
+                                    <div class="direction-summary-count" style="color: var(--upside)" id="sideUpside">0</div>
+                                    <div class="direction-summary-label">Upside</div>
+                                </div>
+                                <div class="direction-summary-item downside-summary">
+                                    <div class="direction-summary-count" style="color: var(--downside)" id="sideDownside">0</div>
+                                    <div class="direction-summary-label">Downside</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-card-title">Selected Catalyst</div>
+                        </div>
+                        <div id="detailPanel">
+                            <div class="info-card-body">
+                                <p style="color: var(--text-muted); font-size: 13px;">Click a catalyst row to view details.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-card-title">Analysis History</div>
+                        </div>
+                        <ul class="history-list" id="historyList">
+                            <li class="history-item" style="color: var(--text-muted); justify-content: center;">Loading...</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Running AI Analysis...</div>
+        <div class="loading-subtext">Processing through AI agents</div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

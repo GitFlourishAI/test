@@ -1,0 +1,98 @@
+**Goal**
+
+Convert the Catalyst Agent output into a structured object so the events can be stored in a database.
+Review the current code, suggest improvements, and provide a complete coding implementation guide. (Don't do it for me, gieve me a guide on how to do it)
+
+The final output should conform to the following **Pydantic model**.
+
+---
+
+## Data Model
+
+```python
+class CatalystReport(BaseModel):
+    id: str  # UUID format (example: 1f0cf03d-04c9-4a65-827f-1ec644dbf6cf)
+
+    title: str  
+    # Example: "Fed Rate Decision: 50bp Cut Expected"
+
+    description: str  
+    # Detailed summary of the catalyst event
+
+    sector_id: str  
+    # Must match one of the following sector UUIDs
+
+    source_type: str  
+    # Allowed values:
+    # policy | earnings | macro | commodity | sector_news
+
+    source_name: str  
+    # Example: "NVIDIA Earnings Call"
+
+    source_url: str  
+    # Example: https://bloomberg.com/markets/currencies
+
+    detected_at: datetime  
+    # Example: Mon Feb 23 2026 14:20:06 GMT+0800
+
+    time_horizon: str  
+    # Allowed values: 3M | 6M | 12M
+
+    confidence_score: float  
+    # Range: 0–100
+
+    impact_magnitude: float  
+    # Percent change estimate (example: 3.2)
+
+    impact_direction: str  
+    # positive | negative
+
+    status: str  
+    # active | archived
+
+    shock_type: str  
+    # Regulatory | Demand Shock | Supply Shock |
+    # Policy Tailwind | Competition | Currency Shock | Monetary Policy
+
+    evidence_summary: str  
+    # Short explanation supporting the catalyst
+
+    ticker: str  
+    # Example: JNJ
+
+    revenue_impact: float
+    ebitda_impact: float
+    valuation_delta: float
+```
+
+---
+
+## Sector Mapping
+
+Use these sector IDs:
+
+```
+38c26eb7-edc1-4ce0-bbd9-dc7a4824773d → Technology
+090ab22a-5e88-44d4-bae0-cef8c45ea840 → Financials
+73204079-d59f-4528-b09a-62ad48446cfd → Consumer Discretionary
+04b93d80-df81-4712-a666-5adc30673b09 → Industrials
+934f977d-5db6-46c2-b625-52e1b5e33101 → Healthcare
+a2f9f4dd-6f47-4601-9602-b32e0c7e2b54 → Energy
+```
+
+
+## Expected Output
+
+The system should convert catalyst results into a structured object like:
+
+```python
+CatalystReport(
+    id="1f0cf03d-04c9-4a65-827f-1ec644dbf6cf",
+    title="Fed Rate Decision: 50bp Cut Expected",
+    sector_id="090ab22a-5e88-44d4-bae0-cef8c45ea840",
+    source_type="macro",
+    ticker="JPM",
+    impact_direction="positive",
+    valuation_delta=250000000
+)
+```

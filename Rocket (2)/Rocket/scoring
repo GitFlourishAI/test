@@ -1,0 +1,227 @@
+Purpose of the Verification Agent
+
+The verification agent does not predict prices.
+
+Its role is to grade the reasoning agent’s outputs on:
+
+Economic logic
+
+Empirical plausibility
+
+Internal consistency
+
+Timing realism
+
+Confidence calibration
+
+Think of it as a junior PM + risk officer combined.
+
+2. What the Verification Agent Evaluates (Rubric Dimensions)
+
+Each reasoning output (e.g.
+“Carbon price ↑ → marginal coal EBITDA ↓ → valuation multiple compression”)
+is graded across 6 dimensions, each scored 0–5.
+
+Dimension 1: Causal Soundness (0–5)
+
+Question:
+Does the causal chain make economic sense step by step?
+
+Scoring guide
+
+0 – Hand-wavy, narrative only (“markets don’t like uncertainty”)
+
+2 – Directionally correct but missing key transmission steps
+
+3 – Clear mechanism, but one weak or implicit link
+
+5 – Fully articulated causal chain with no logical gaps
+
+Automatable checks
+
+Presence of at least 2 causal links (→)
+
+Each link maps to a known financial variable (costs, margins, volumes, multiples)
+
+Dimension 2: Directional Consistency (0–5)
+
+Question:
+Is the predicted direction internally consistent with the mechanism?
+
+Common failure case (like your example):
+
+Short-term rally misinterpreted as long-term downside → agent labels it “wrong”
+
+Scoring guide
+
+0 – Direction contradicts the mechanism
+
+3 – Direction plausible but ambiguous in timeframe
+
+5 – Direction explicitly tied to time horizon (short vs medium vs long term)
+
+Automatable checks
+
+Look for qualifiers like:
+
+“short-term”
+
+“initial reaction”
+
+“medium-term”
+
+Penalize if absent for regulatory / policy events
+
+Dimension 3: Time-Horizon Alignment (0–5)
+
+Question:
+Does the reasoning correctly distinguish announcement effects vs structural effects?
+
+This is exactly where your rare-earth case failed.
+
+Scoring guide
+
+0 – No time horizon specified
+
+2 – Implied but not explicit
+
+4 – Explicit short vs medium term
+
+5 – Explicit + explains why the sign may flip over time
+
+Gold-standard example
+
+“Announcement → speculative inflows (short-term upside),
+but quota enforcement → margin compression & inventory overhang (medium-term downside)”
+
+Automatable checks
+
+Presence of ≥2 time horizons
+
+Presence of verbs like “initial”, “subsequently”, “over time”
+
+Dimension 4: Magnitude Plausibility (0–5)
+
+Question:
+Is the stated financial impact reasonable relative to:
+
+Company size
+
+Sector volatility
+
+Nature of the catalyst
+
+Scoring guide
+
+0 – Orders of magnitude off
+
+3 – Directionally OK but poorly scaled
+
+5 – Scaled to market cap / EBITDA / revenue exposure
+
+Automatable checks
+
+Normalize impact by:
+
+Market cap
+
+EBITDA
+
+Penalize if:
+
+Impact > X% of market cap for non-binary events
+
+Dimension 5: Confidence Calibration (0–5)
+
+Question:
+Does the confidence level match uncertainty of the catalyst?
+
+Common failure
+
+Draft regulation + 90% confidence ❌
+
+Scoring guide
+
+0 – Clearly miscalibrated
+
+3 – Reasonable but optimistic
+
+5 – Explicitly justified confidence
+
+Automatable checks
+
+Penalize high confidence if keywords present:
+
+“draft”
+
+“proposed”
+
+“subject to approval”
+
+Reward confidence ranges instead of point estimates
+
+Dimension 6: Empirical Anchoring (0–5)
+
+Question:
+Is the reasoning anchored to historical precedent or data?
+
+Scoring guide
+
+0 – Pure theory
+
+2 – Vague reference (“historically”)
+
+4 – Mentions similar events
+
+5 – Explicit analogy or past case
+
+Automatable checks
+
+Look for:
+
+Years
+
+Past policy names
+
+“Similar to X in 2018”
+
+3. Composite Score & Decision Rules
+Composite Score (0–30)
+Total Score = sum of 6 dimensions
+
+Action Thresholds (Investor-Grade)
+Score	System Action
+25–30	High-credibility signal → surface to Peter
+18–24	Medium → flag with caveats
+12–17	Low → internal only
+<12	Reject
+4. Signal vs Flag (Formal Definition)
+Signal
+
+Composite ≥ 18
+
+No single dimension < 3
+
+Direction + time horizon consistent
+
+Flag
+
+Any of:
+
+Confidence miscalibration
+
+Time-horizon ambiguity
+
+Magnitude implausibility
+
+Example from your case
+
+✔ Mechanism correct
+
+❌ Time horizon missing
+
+❌ Confidence too static
+
+→ Correct verdict:
+
+“Short-term signal validated, medium-term correction flag”

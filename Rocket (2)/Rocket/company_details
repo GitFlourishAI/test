@@ -1,0 +1,256 @@
+​1) BHP Group Ltd (NYSE: BHP / ASX: BHP)
+{
+  "ticker": "BHP",
+  "company_name": "BHP Group Ltd",
+  "sector": "Mining",
+  "country": "Australia",
+  "revenue": {
+    "export_revenue_pct": 0.60,
+    "domestic_revenue_pct": 0.40,
+    "usd_revenue_pct": 0.85,
+    "pricing_power_score": 0.65
+  },
+  "cost": {
+    "imported_input_pct": 0.20,
+    "usd_denom_input_pct": 0.40,
+    "operating_leverage_score": 0.55
+  },
+  "fx": {
+    "fx_hedging_ratio": 0.25,
+    "net_usd_position_pct": 0.80
+  },
+  "capital_markets": {
+    "foreign_ownership_pct": 0.55,
+    "index_inclusion": ["MSCI World", "FTSE 100", "ASX 200"],
+    "market_cap_usd": 200000000000,
+    "average_daily_turnover_usd": 500000000
+  },
+  "investment": {
+    "capex_to_revenue_ratio": 0.15,
+    "debt_to_equity_ratio": 0.40,
+    "expansion_pipeline_flag": true
+  },
+  "last_updated": "2026-02-28T00:00:00Z"
+}
+
+• BHP is a diversified miner with substantial export revenue; iron ore and copper exports dominate.
+
+2) Rio Tinto Group (NYSE: RIO / LSE: RIO / ASX: RIO)
+{
+  "ticker": "RIO",
+  "company_name": "Rio Tinto Group",
+  "sector": "Mining",
+  "country": "UK/Australia",
+  "revenue": {
+    "export_revenue_pct": 0.70,
+    "domestic_revenue_pct": 0.30,
+    "usd_revenue_pct": 0.80,
+    "pricing_power_score": 0.60
+  },
+  "cost": {
+    "imported_input_pct": 0.15,
+    "usd_denom_input_pct": 0.35,
+    "operating_leverage_score": 0.60
+  },
+  "fx": {
+    "fx_hedging_ratio": 0.20,
+    "net_usd_position_pct": 0.75
+  },
+  "capital_markets": {
+    "foreign_ownership_pct": 0.52,
+    "index_inclusion": ["MSCI World", "FTSE 100", "ASX 200"],
+    "market_cap_usd": 130000000000,
+    "average_daily_turnover_usd": 350000000
+  },
+  "investment": {
+    "capex_to_revenue_ratio": 0.18,
+    "debt_to_equity_ratio": 0.38,
+    "expansion_pipeline_flag": true
+  },
+  "last_updated": "2026-02-28T00:00:00Z"
+}
+
+• Rio Tinto earns much of its revenue from iron ore, aluminium, and copper exports and is globally oriented.
+
+3) Vale S.A. (NYSE: VALE / B3: VALE3)
+{
+  "ticker": "VALE",
+  "company_name": "Vale S.A.",
+  "sector": "Mining",
+  "country": "Brazil",
+  "revenue": {
+    "export_revenue_pct": 0.75,
+    "domestic_revenue_pct": 0.25,
+    "usd_revenue_pct": 0.92,
+    "pricing_power_score": 0.63
+  },
+  "cost": {
+    "imported_input_pct": 0.22,
+    "usd_denom_input_pct": 0.50,
+    "operating_leverage_score": 0.58
+  },
+  "fx": {
+    "fx_hedging_ratio": 0.28,
+    "net_usd_position_pct": 0.88
+  },
+  "capital_markets": {
+    "foreign_ownership_pct": 0.47,
+    "index_inclusion": ["MSCI Emerging Markets"],
+    "market_cap_usd": 90000000000,
+    "average_daily_turnover_usd": 200000000
+  },
+  "investment": {
+    "capex_to_revenue_ratio": 0.14,
+    "debt_to_equity_ratio": 0.42,
+    "expansion_pipeline_flag": true
+  },
+  "last_updated": "2026-02-28T00:00:00Z"
+}
+
+• Vale is one of the largest iron ore exporters on the planet, with very high export share in revenue.
+
+4) Zijin Mining Group (CSI: 2899 / SSE: 601899)
+{
+  "ticker": "Zijin Mining",
+  "company_name": "Zijin Mining Group Co., Ltd",
+  "sector": "Mining",
+  "country": "China",
+  "revenue": {
+    "export_revenue_pct": 0.40,
+    "domestic_revenue_pct": 0.60,
+    "usd_revenue_pct": 0.35,
+    "pricing_power_score": 0.50
+  },
+  "cost": {
+    "imported_input_pct": 0.30,
+    "usd_denom_input_pct": 0.28,
+    "operating_leverage_score": 0.50
+  },
+  "fx": {
+    "fx_hedging_ratio": 0.15,
+    "net_usd_position_pct": 0.30
+  },
+  "capital_markets": {
+    "foreign_ownership_pct": 0.15,
+    "index_inclusion": ["CSI 300"],
+    "market_cap_usd": 40000000000,
+    "average_daily_turnover_usd": 80000000
+  },
+  "investment": {
+    "capex_to_revenue_ratio": 0.17,
+    "debt_to_equity_ratio": 0.50,
+    "expansion_pipeline_flag": true
+  },
+  "last_updated": "2026-02-28T00:00:00Z"
+}
+
+• Zijin is a major Chinese mining company with global operations but a larger domestic base in its production mix.
+
+5) Hudbay Minerals Inc. (NYSE: HBM / TSX: HBM)
+{
+  "ticker": "Hudbay Minerals",
+  "company_name": "Hudbay Minerals Inc.",
+  "sector": "Mining",
+  "country": "Canada",
+  "revenue": {
+    "export_revenue_pct": 0.60,
+    "domestic_revenue_pct": 0.40,
+    "usd_revenue_pct": 0.90,
+    "pricing_power_score": 0.55
+  },
+  "cost": {
+    "imported_input_pct": 0.25,
+    "usd_denom_input_pct": 0.45,
+    "operating_leverage_score": 0.62
+  },
+  "fx": {
+    "fx_hedging_ratio": 0.20,
+    "net_usd_position_pct": 0.75
+  },
+  "capital_markets": {
+    "foreign_ownership_pct": 0.35,
+    "index_inclusion": ["TSX Composite"],
+    "market_cap_usd": 5000000000,
+    "average_daily_turnover_usd": 25000000
+  },
+  "investment": {
+    "capex_to_revenue_ratio": 0.20,
+    "debt_to_equity_ratio": 0.45,
+    "expansion_pipeline_flag": false
+  },
+  "last_updated": "2026-02-28T00:00:00Z"
+}
+
+• Hudbay’s publicly available data shows revenue breakdown by product; copper accounts for ~57% of revenue.
+
+6) First Quantum Minerals Ltd. (TSX: FM / NYSE: FQV)
+{
+  "ticker": "First Quantum",
+  "company_name": "First Quantum Minerals Ltd.",
+  "sector": "Mining",
+  "country": "Canada",
+  "revenue": {
+    "export_revenue_pct": 0.80,
+    "domestic_revenue_pct": 0.20,
+    "usd_revenue_pct": 0.88,
+    "pricing_power_score": 0.58
+  },
+  "cost": {
+    "imported_input_pct": 0.32,
+    "usd_denom_input_pct": 0.48,
+    "operating_leverage_score": 0.60
+  },
+  "fx": {
+    "fx_hedging_ratio": 0.22,
+    "net_usd_position_pct": 0.78
+  },
+  "capital_markets": {
+    "foreign_ownership_pct": 0.40,
+    "index_inclusion": ["TSX Composite"],
+    "market_cap_usd": 11000000000,
+    "average_daily_turnover_usd": 30000000
+  },
+  "investment": {
+    "capex_to_revenue_ratio": 0.18,
+    "debt_to_equity_ratio": 0.42,
+    "expansion_pipeline_flag": true
+  },
+  "last_updated": "2026-02-28T00:00:00Z"
+}
+
+• First Quantum’s 2022 data shows copper representing ~86% of revenues.
+
+7) Anglo American plc (LSE: AAL)
+{
+  "ticker": "AAL",
+  "company_name": "Anglo American plc",
+  "sector": "Mining",
+  "country": "UK",
+  "revenue": {
+    "export_revenue_pct": 0.65,
+    "domestic_revenue_pct": 0.35,
+    "usd_revenue_pct": 0.75,
+    "pricing_power_score": 0.60
+  },
+  "cost": {
+    "imported_input_pct": 0.28,
+    "usd_denom_input_pct": 0.42,
+    "operating_leverage_score": 0.59
+  },
+  "fx": {
+    "fx_hedging_ratio": 0.18,
+    "net_usd_position_pct": 0.70
+  },
+  "capital_markets": {
+    "foreign_ownership_pct": 0.50,
+    "index_inclusion": ["FTSE 100", "MSCI World"],
+    "market_cap_usd": 35000000000,
+    "average_daily_turnover_usd": 100000000
+  },
+  "investment": {
+    "capex_to_revenue_ratio": 0.16,
+    "debt_to_equity_ratio": 0.40,
+    "expansion_pipeline_flag": true
+  },
+  "last_updated": "2026-02-28T00:00:00Z"
+}
